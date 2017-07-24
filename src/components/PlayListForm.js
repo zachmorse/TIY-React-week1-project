@@ -1,6 +1,32 @@
 import React, { Component } from "react";
 
 class PlayListForm extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      userName: "",
+      songArtist: "",
+      songTitle: "",
+      songNotes: ""
+    };
+  }
+
+  handleUserName = e => {
+    this.setState({ userName: e.target.value });
+  };
+
+  handleSongArtist = e => {
+    this.setState({ songArtist: e.target.value });
+  };
+
+  handleSongTitle = e => {
+    this.setState({ songTitle: e.target.value });
+  };
+
+  handleSongNotes = e => {
+    this.setState({ songNotes: e.target.value });
+  };
+
   addToList = e => {
     e.preventDefault();
     this.setState({
@@ -36,7 +62,33 @@ class PlayListForm extends Component {
   render() {
     return (
       <div>
-        <form />
+        <form>
+          <input
+            type="text"
+            placeholder="Name or Username"
+            onChange={this.handleUserName}
+            value={this.state.userName}
+          />
+          <input
+            type="text"
+            placeholder="Enter Band/Artist"
+            onChange={this.handleSongArtist}
+            value={this.state.songArtist}
+          />
+          <input
+            type="text"
+            placeholder="Song Title"
+            onChange={this.handleSongTitle}
+            value={this.state.songTitle}
+          />
+          <input
+            type="text"
+            placeholder="Song Notes"
+            onChange={this.handleSongNotes}
+            value={this.state.songNotes}
+          />
+          <input type="submit" onClick={this.addToList} />
+        </form>
       </div>
     );
   }

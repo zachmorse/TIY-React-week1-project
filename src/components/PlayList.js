@@ -34,7 +34,7 @@ class PlayList extends Component {
       <div>
         <h1>Hello world, playlist will appear here</h1>
 
-        <PlayListItem />
+        <PlayListItem listings={this.state.songs} />
       </div>
     );
   }
