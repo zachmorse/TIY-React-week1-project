@@ -11,20 +11,27 @@ class App extends Component {
       userName: "",
       songTitle: "",
       songArtist: "",
-      songNotes: ""
+      songNotes: "none"
     };
   }
   render() {
     return (
       <div className="App">
         <NavBar />
-        <PlayListForm
-          userName={this.state.userName}
-          songTitle={this.state.songTitle}
-          songArtist={this.state.songArtist}
-          songNotes={this.state.songNotes}
-        />
-        <PlayList />
+        <div className="row">
+          <div className="col-sm-6">
+            <PlayListForm
+              userName={this.state.userName}
+              songTitle={this.state.songTitle}
+              songArtist={this.state.songArtist}
+              songNotes={this.state.songNotes}
+            />
+          </div>
+
+          <div className="col-sm-6">
+            <PlayList />
+          </div>
+        </div>
       </div>
     );
   }

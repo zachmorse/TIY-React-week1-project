@@ -18,13 +18,13 @@ class PlayList extends Component {
       });
   };
 
-  ComponentDidMount() {
+  componentDidMount() {
     fetch("https://tiny-lasagna-server.herokuapp.com/collections/playlisting")
       .then(results => {
         return results.json();
       })
-      .then(data => {
-        this.setState({ songs: data });
+      .then(songs => {
+        this.setState({ songs });
         console.log("state", this.state.songs);
       });
   }
@@ -32,9 +32,22 @@ class PlayList extends Component {
   render() {
     return (
       <div>
-        <h1>Hello world, playlist will appear here</h1>
-
-        <PlayListItem listings={this.state.songs} />
+        <h1>Playlists:</h1>
+        <br />
+        <div
+          style={{
+            height: 250,
+            overflow: "scroll"
+          }}
+        >
+          <PlayListItem songRender={this.state} onClick={this.fetchData} />
+        </div>
+        <input
+          type="button"
+          className="btn btn-outline-primary"
+          onClick={this.fetchData}
+          value="update"
+        />
       </div>
     );
   }

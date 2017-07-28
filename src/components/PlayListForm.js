@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class PlayListForm extends Component {
+export default class PlayListForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -61,37 +61,66 @@ class PlayListForm extends Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
+        <h1>Add Listing to Database:</h1>
+        <br />
+
         <form>
+          <div class="form-group">
+            <label for="artist">Band / Artist: </label>
+            <input
+              type="text"
+              placeholder="Enter Band/Artist"
+              className="form-control"
+              onChange={this.handleSongArtist}
+              value={this.state.songArtist}
+              id="artist"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="artist">User Name:</label>
+            <input
+              type="text"
+              placeholder="Name or Username"
+              className="form-control"
+              onChange={this.handleUserName}
+              value={this.state.userName}
+              id="username"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="title">Title:</label>
+            <input
+              type="text"
+              placeholder="Song Title"
+              className="form-control"
+              onChange={this.handleSongTitle}
+              value={this.state.songTitle}
+              id="title"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="notes">Notes:</label>
+            <input
+              type="text"
+              placeholder="Song Notes"
+              className="form-control"
+              onChange={this.handleSongNotes}
+              value={this.state.songNotes}
+              id="notes"
+            />
+          </div>
+          <br />
           <input
-            type="text"
-            placeholder="Name or Username"
-            onChange={this.handleUserName}
-            value={this.state.userName}
+            type="submit"
+            className="btn btn-outline-primary"
+            onClick={this.addToList}
           />
-          <input
-            type="text"
-            placeholder="Enter Band/Artist"
-            onChange={this.handleSongArtist}
-            value={this.state.songArtist}
-          />
-          <input
-            type="text"
-            placeholder="Song Title"
-            onChange={this.handleSongTitle}
-            value={this.state.songTitle}
-          />
-          <input
-            type="text"
-            placeholder="Song Notes"
-            onChange={this.handleSongNotes}
-            value={this.state.songNotes}
-          />
-          <input type="submit" onClick={this.addToList} />
         </form>
       </div>
     );
   }
 }
-
-export default PlayListForm;
